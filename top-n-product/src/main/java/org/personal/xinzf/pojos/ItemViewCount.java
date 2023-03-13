@@ -1,9 +1,9 @@
 package org.personal.xinzf.pojos;
 
 public class ItemViewCount {
-    private Integer itemId;
-    private Long windowEnd;
-    private Integer count;
+    public Integer itemId;
+    public Long windowEnd;
+    public Integer count;
 
     public Integer getItemId() {
         return itemId;
@@ -33,5 +33,9 @@ public class ItemViewCount {
         this.itemId = itemId;
         this.windowEnd = windowEnd;
         this.count = count;
+    }
+
+    public ItemViewCount() {
+
     }
 }
