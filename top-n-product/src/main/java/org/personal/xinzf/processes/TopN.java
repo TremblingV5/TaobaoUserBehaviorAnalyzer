@@ -47,7 +47,15 @@ public class TopN extends KeyedProcessFunction<Long, ItemViewCount, String> {
                 }
         );
 
-        List<ItemViewCount> sorted = all.subList(0, topSize);
+        List<ItemViewCount> sorted = new ArrayList<>();
+
+        // Prevent out-of-bounds
+        if (all.size() > topSize) {
+            sorted = all.subList(0, topSize);
+        } else {
+            sorted = all;
+        }
+
         itemState.clear();
 
         StringBuilder stringBuilder = new StringBuilder();
